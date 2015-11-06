@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lions</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+  <title>מועדון ליונס הוד השרון - <%= "ויטל פנחס" %></title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body dir="rtl">
+
+	<div class="fixed">
+  	<nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+    	<ul class="title-area">
+      	<li class="name">
+        	<h1><a href="#"><%= image_tag "logo_small.png" %> מועדון ליונס הוד השרון</a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+      	<ul class="right">
+        	<li class="active"><a href="#">הודעות והתראות</a></li>
+          <li><a href="customers.html">לקוחות</a></li>
+          <li><a href="#">ציוד ומלאי</a></li>
+        </ul>
+
+        <ul class="left">
+        	<li class="has-dropdown">
+          	<a href="#"><u>ויטל פנחס</u></a>
+          	<ul class="dropdown">
+            	<li><a href="#">הגדרות</a></li>
+              <li><a href="#">התנתק</a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <p>&nbsp;</p>
+    </div>
+  </div>
+
+	<%= yield %>
 
 </body>
 </html>

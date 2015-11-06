@@ -1,0 +1,58 @@
+/* General */
+
+table {
+	width: 100%;
+}
+
+a[disabled] {
+	pointer-events: none;
+}
+
+.panel {
+	border-top-style: none;
+	border-left-style: none;
+	
+}
+
+.scroll-wrap{
+	overflow-y: scroll;
+	height: 11.14em;
+	border: solid 1px #ddd;
+}
+.scroll-wrap>*{
+	border: none;
+}
+
+
+/* Home */
+
+.minimize-panel {
+	margin: -.5em .1em .5em !important;
+}
+.minimize-panel>a {
+	color: #ccc;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.msgboard>table tr td:first-child {
+	width: 9em;
+	vertical-align: top;
+}
+
+.fa.fa-exclamation-circle{
+	font-size: 1.2em;
+}
+.fa.fa-exclamation-circle.red {
+	color: #dd2211;
+}
+.fa.fa-exclamation-circle.yellow {
+	color: #dcb420;
+}
+
+.report-list li {
+	padding-top: 1.2em;
+}
+
+
+/**/
