@@ -262,9 +262,14 @@
 	$(".minimize-panel>a").click(function(){
 		$(this).parent().parent().parent().children("div:not(:first-child)").toggle();
 		$(this).children("i").toggleClass("fa-angle-up fa-angle-down");
-	})
+	});
 
 	$("#errpanel .minimize-panel>a").click(function(){
 		$("#errpanel #errcount").toggle();
+	});
+
+	$(".sub-nav>dd>a").click(function(){
+		$(this).parent().parent().children("dd").removeClass("active");
+		$(this).parent().addClass("active");
 	});
 </script>
