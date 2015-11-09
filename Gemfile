@@ -58,3 +58,6 @@ gem "nokogiri", ">= 1.6.7.rc"
 
 #Foundation
 gem 'foundation-rails'
+
+# Devise gem to authenticate users.
+gem 'devise'
