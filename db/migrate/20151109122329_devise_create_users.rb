@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Customization
       t.string   :fname
       t.string   :lname
-      t.string   :tz,              null: false
+      t.string   :tz
       t.string   :phone_num
 
       ## Database authenticatable
@@ -41,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :users, :username,                unique: true
+    add_index :users, :username,             unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true

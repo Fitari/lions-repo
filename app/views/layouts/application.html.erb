@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>מועדון ליונס הוד השרון - <%= "ויטל פנחס" %></title>
+  <title>מועדון ליונס הוד השרון - <% if current_user %><%= current_user.fname + " " + current_user.lname %><% end %></title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
@@ -30,13 +30,23 @@
         </ul>
 
         <ul class="left">
-        	<li class="has-dropdown">
-          	<a href="#"><u>ויטל פנחס</u></a>
-          	<ul class="dropdown">
-            	<li><a href="#">הגדרות</a></li>
-              <li><a href="#">התנתק</a></li>
+        <% if current_user %>
+          <li class="has-dropdown">
+            <a href="#">
+              <u>
+                  <%= current_user.fname + " " + current_user.lname %>
+              </u>
+            </a>
+            <ul class="dropdown">
+              <li><a href="#">הגדרות</a></li>
+              <li> <%= link_to "יציאה", destroy_user_session_path, method: :delete %><!--a href="#">התנתק</a--></li>
             </ul>
           </li>
+        <% else %>
+          <li>
+            <%= link_to "כניסה למערכת", new_user_session_path %>
+          </li>
+        <% end %>
         </ul>
       </section>
     </nav>
