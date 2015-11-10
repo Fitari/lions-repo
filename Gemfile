@@ -61,3 +61,7 @@ gem 'foundation-rails'
 
 # Devise gem to authenticate users.
 gem 'devise'
+
+gem 'pundit'
+
+gem 'faker'
