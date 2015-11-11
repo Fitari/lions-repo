@@ -93,3 +93,13 @@ tabs>li:focus, .tabs>li>a:focus {
 .tabs-content table {
 	border: none;
 }
+
+.panel.warning {
+  background-color: scale-color($warning-color, $lightness: 90%);
+}
+
+.panel.warning p{
+  color: scale-color($warning-color, $lightness: -10%);
+  font-weight: bold;
+  font-size: 1.15em;
+}

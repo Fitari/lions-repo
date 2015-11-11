@@ -75,114 +75,103 @@
 
 	<div class="row">
 	  <div class="large-12 columns">
-		<div class="panel">
+			<div class="panel">
 		
-		  <div class="row">
-			<div class="large-12 columns">
-			  <h3>איתור והוספת לקוח</h3>
+			  <div class="row">
+					<div class="large-12 columns">
+					  <h3>איתור והוספת לקוח</h3>
+					</div>
+			  </div>
+
+			  <div class="row">
+					<div class="large-12 columns">
+					  <p>&nbsp;</p>
+					</div>
+			  </div>
+				
+				<%= form_for @customer, url: {controller: "customer", action: "create"} do |f| %>
+	      <div class="row">
+	        <div class="medium-3 columns">
+	          <label for="">שם פרטי
+	            <%= f.text_field(:fname) %>
+	          </label>
+	        </div>
+	        
+	        <div class="medium-3 columns">
+	          <label for="">שם משפחה
+	            <%= f.text_field(:lname) %>
+	          </label>
+	        </div>
+	        
+	        <div class="medium-3 columns">
+	          <label for="">ת.ז.
+	            <%= f.text_field(:tz) %>
+	          </label>
+	        </div>
+	        
+	        <div class="medium-2 columns">
+	          <label for="">מגדר
+	            <%= select(:customer, :gender, [['זכר', 'זכר'], ['נקבה', 'נקבה']], {include_blank: true}) %>
+	          </label>
+	        </div>
+
+	        <div class="medium-1 columns">
+	        </div>
+	      </div>
+	      
+	      <div class="row">
+	        <div class="medium-4 columns">
+	          <label for="">ישוב
+	            <%= collection_select(:customer, :city_id, City.all.order('name'), :id, :name, {include_blank: true}) %>
+	          </label>
+	        </div>
+	        <div class="medium-5 columns">
+	          <label for="">כתובת
+	            <%= f.text_field(:address) %>
+	          </label>
+	        </div>
+	        <div class="medium-2 columns">
+	          <label for="">מיקוד
+	            <%= f.text_field(:zipcode) %>
+	          </label>
+	        </div>
+
+	        <div class="medium-1 columns">
+	        </div>
+	      </div>
+
+	      <div class="row">
+	        <div class="medium-4 columns">
+	          <label for="">טלפון
+	            <%= f.telephone_field(:phone) %>
+	          </label>
+	        </div>
+	        
+	        <div class="medium-6 columns">
+	          <label for="">דוא"ל
+	            <%= f.email_field(:email) %>
+	          </label>
+	        </div>
+
+	        <div class="medium-2 columns">
+	        </div>
+	      </div>
+
+	      <div class="row">
+	        <div class="large-12 columns">&nbsp;</div>
+	      </div>
+
+	      <div class="row">
+	        <div class="large-12 columns">
+	          <div class="left">
+	            <%= submit_tag "איתור לקוח קיים", name: 'search', :id=>"btn_search", :class=>"button small radius" %>
+	            <%= submit_tag "הוספת לקוח חדש", :id=>"btn_new", :class=>"button small radius" %>
+	          </div>
+	        </div>
+	      </div>
+	    <% end %>
+
 			</div>
-		  </div>
-
-		  <div class="row">
-			<div class="large-12 columns">
-			  <p>&nbsp;</p>
-			</div>
-		  </div>
-
-		  <form>
-			<div class="row">
-			  <div class="medium-3 columns">
-				<label for="">שם פרטי
-				  <input type="text" name="">
-				</label>
-			  </div>
-			  
-			  <div class="medium-3 columns">
-				<label for="">שם משפחה
-				  <input type="text" name="">
-				</label>
-			  </div>
-			  
-			  <div class="medium-3 columns">
-				<label for="">ת.ז.
-				  <input type="text" name="">
-				</label>
-			  </div>
-			  
-			  <div class="medium-2 columns">
-				<label for="">מגדר
-				  <select name="" id="">
-					<option></option>
-					<option value="0">ז</option>
-					<option value="1">נ</option>
-				  </select>
-				</label>
-			  </div>
-
-			  <div class="medium-1 columns">
-			  </div>
-			</div>
-			
-			<div class="row">
-			  <div class="medium-4 columns">
-				<label for="">ישוב
-				  <select name="" id="">
-					<option></option>
-					<option value="">הוד השרון</option>
-					<option value="">כפר סבא</option>
-					<option value="">רעננה</option>
-					<option value="">הרצליה</option>
-				  </select>
-				</label>
-			  </div>
-			  <div class="medium-5 columns">
-				<label for="">כתובת
-				  <input type="text" name="">
-				</label>
-			  </div>
-			  <div class="medium-2 columns">
-				<label for="">מיקוד
-				  <input type="text" name="">
-				</label>
-			  </div>
-
-			  <div class="medium-1 columns">
-			  </div>
-			</div>
-
-			<div class="row">
-			  <div class="medium-4 columns">
-				<label for="">טלפון
-				  <input type="text" name="">
-				</label>
-			  </div>
-			  
-			  <div class="medium-6 columns">
-				<label for="">דוא"ל
-				  <input type="email" name="">
-				</label>
-			  </div>
-
-			  <div class="medium-2 columns">
-			  </div>
-			</div>
-
-			<div class="row">
-			  <div class="large-12 columns">&nbsp;</div>
-			</div>
-
-			<div class="row">
-			  <div class="large-12 columns">
-				<div class="left">
-				  <a href="#" class="button small radius" id="findBtn">איתור לקוח קיים</a>
-				  <a href="#" class="button small radius">הוספת לקוח חדש</a>
-				</div>
-			  </div>
-			</div>
-			
-		  </form>
-
-		</div>
 	  </div>
 	</div>
 

@@ -18,3 +18,9 @@
 
 $(function(){ $(document).foundation(); });
 
+ready = function() {$(".top-bar-section>.right>li:nth-child(" + $(".top-bar-section>.right").attr("data-active") +")").addClass("active")}
+
+$( document ).ready(ready);
+
+$( document ).on('page:load', ready);
+

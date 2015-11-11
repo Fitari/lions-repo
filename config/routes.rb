@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  resources :customer
+  get 'customer/search'
+
   devise_for :users #, :controllers => { :registrations => "user/registrations" }
   get 'home/index'
 

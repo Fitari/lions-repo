@@ -1,0 +1,310 @@
+<div class="row">
+      <div class="large-12 columns">
+        <div class="panel">
+        
+        <div class="row">
+          <div class="large-4 columns">
+            <h2>כרטיס לקוח</h2><h2><small>אלון פנחס</small></h2>
+          </div>
+          <div class="large-8 columns">
+            <div class="left" id="sub_toolbar">
+              <%= link_to raw("<i class='fa fa-retweet'></i> החלפת לקוח"), customer_index_path, :class=>"button small radius" %>
+              <!--a href="customers.html" class="button small radius"><i class="fa fa-retweet"></i> החלפת לקוח</a-->
+              <a href="#" class="button small radius" id="btn_edit"><i class="fa fa-pencil-square-o"></i> עידכון פרטים</a>
+              <a href="#" class="button small radius">השאלה</a>
+              <a href="#" class="button small radius">מכירה</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <p>&nbsp;</p>
+          </div>
+        </div>
+
+        <%= form_for @customer, url: {action: "create"} do |f| %>
+      <div class="row">
+        <div class="medium-4 columns">
+          <label for="">שם פרטי
+            <%= f.text_field(:fname) %>
+          </label>
+        </div>
+        
+        <div class="medium-4 columns">
+          <label for="">שם משפחה
+            <%= f.text_field(:lname) %>
+          </label>
+        </div>
+        
+        <div class="medium-2 columns">
+          <label for="">ת.ז.
+            <%= f.text_field(:tz) %>
+          </label>
+        </div>
+        
+        <div class="medium-2 columns">
+          <label for="">מגדר
+          	<%= f.text_field(:gender) %>
+            <%#= select(:customer, :gender, [['זכר', 'זכר'], ['נקבה', 'נקבה']], {include_blank: true}) %>
+          </label>
+        </div>
+
+        <div class="medium-0 columns">
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="medium-4 columns">
+          <label for="">ישוב
+            <%= fields_for @customer.city do |city_form| %>
+			    <%= city_form.text_field :name %>
+			  <% end %>
+            <%#= collection_select(:customer, :city_id, City.all.order('name'), :id, :name, {include_blank: true}) %>
+          </label>
+        </div>
+        <div class="medium-4 columns">
+          <label for="">כתובת
+            <%= f.text_field(:address) %>
+          </label>
+        </div>
+        <div class="medium-2 columns">
+          <label for="">מיקוד
+            <%= f.text_field(:zipcode) %>
+          </label>
+        </div>
+
+        <div class="medium-2 columns">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-4 columns">
+          <label for="">טלפון
+            <%= f.telephone_field(:phone) %>
+          </label>
+        </div>
+        
+        <div class="medium-6 columns">
+          <label for="">דוא"ל
+            <%= f.email_field(:email) %>
+          </label>
+        </div>
+
+        <div class="medium-2 columns">
+        </div>
+      </div>
+
+          <div class="row">
+            <div class="large-12 columns">&nbsp;</div>
+          </div>
+        <% end %>
+
+        <div id="editbuttons" class="row hide">
+          <div class="large-12 columns text-left">
+            <a href="" class="button small radius">שמירה</a>
+            <a href="" class="button small radius">ביטול</a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <div id="extradetails">
+              <ul class="tabs" data-tab role="tablist">
+                <li class="tab-title active" role="presentation"><a href="#panel2-1" role="tab" tabindex="0" aria-selected="true" aria-controls="panel2-1">השאלות</a></li>
+                <li class="tab-title" role="presentation"><a href="#panel2-2" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-2">הסטוריית השאלות</a></li>
+                <li class="tab-title" role="presentation"><a href="#panel2-3" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-3">הסטוריית רכישות</a></li>
+                <li class="tab-title" role="presentation"><a href="#panel2-4" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-4">תשלומים</a></li>
+              </ul>
+              <div class="tabs-content">
+                <section role="tabpanel" aria-hidden="false" class="content active" id="panel2-1">
+                  <table>
+                    <tr>
+                      <th>מק"ט</th>
+                      <th>מוצר</th>
+                      <th>פריט</th>
+                      <th>תאריך השאלה</th>
+                      <th>תאריך אחרון להחזרה</th>
+                      <th>ימי איחור</th>
+                      <th>החזרה</th>
+                    </tr>
+                    <tr>
+                      <td>24568225</td>
+                      <td>הליכון עם גלגלים</td>
+                      <td>110</td>
+                      <td>08/09/2015</td>
+                      <td>07/11/2015</td>
+                      <td>0</td>
+                      <td class="text-center"><a href="#" class="button tiny radius">החזר</a></td>
+                    </tr>
+                  </table>
+                </section>
+                <section role="tabpanel" aria-hidden="true" class="content" id="panel2-2">
+                  <table>
+                    <tr>
+                      <th>מק"ט</th>
+                      <th>מוצר</th>
+                      <th>פריט</th>
+                      <th>תאריך השאלה</th>
+                      <th>תאריך אחרון להחזרה</th>
+                      <th>תאריך החזרה בפועל</th>
+                      <th>ימי איחור</th>
+                      <th>הערות</th>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/07/2015</td>
+                      <td>11/10/2015</td>
+                      <td>08/09/2015</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/04/2015</td>
+                      <td>11/07/2015</td>
+                      <td><font style="color: red">12/07/2015</font></td>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/07/2015</td>
+                      <td>11/10/2015</td>
+                      <td>08/09/2015</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/04/2015</td>
+                      <td>11/07/2015</td>
+                      <td><font style="color: red">12/07/2015</font></td>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/07/2015</td>
+                      <td>11/10/2015</td>
+                      <td>08/09/2015</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/04/2015</td>
+                      <td>11/07/2015</td>
+                      <td><font style="color: red">12/07/2015</font></td>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/07/2015</td>
+                      <td>11/10/2015</td>
+                      <td>08/09/2015</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/04/2015</td>
+                      <td>11/07/2015</td>
+                      <td><font style="color: red">12/07/2015</font></td>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/07/2015</td>
+                      <td>11/10/2015</td>
+                      <td>08/09/2015</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/04/2015</td>
+                      <td>11/07/2015</td>
+                      <td><font style="color: red">12/07/2015</font></td>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/07/2015</td>
+                      <td>11/10/2015</td>
+                      <td>08/09/2015</td>
+                      <td>0</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>111222333</td>
+                      <td>כיסה גלגלים ממונע</td>
+                      <td>202</td>
+                      <td>12/04/2015</td>
+                      <td>11/07/2015</td>
+                      <td><font style="color: red">12/07/2015</font></td>
+                      <td>1</td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </section>
+                <section role="tabpanel" aria-hidden="true" class="content" id="panel2-3">
+                  <h2>Third panel content goes here...</h2>
+                </section>
+                <section role="tabpanel" aria-hidden="true" class="content" id="panel2-4">
+                  <h2>Fourth panel content goes here...</h2>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function(){
+        $("input").prop( "disabled", true );
+      });
+
+      $("#btn_edit").click(function(){
+        $("input").prop( "disabled", false );
+        $("#sub_toolbar>a").addClass("secondary disabled");
+        $("#editbuttons").show();
+        
+      });
+
+      $("#editbuttons a").click(function(){
+        $("input").prop( "disabled", true );
+        $("#sub_toolbar>a").removeClass("secondary disabled");
+        $("#editbuttons").hide();
+        
+      });
+
+    </script>
