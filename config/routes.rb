@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :customer
-  get 'customer/search'
+  resources :customers, only: [:index, :show, :update, :create] do
+    collection do
+      get :search
+    end
+  end
 
   devise_for :users #, :controllers => { :registrations => "user/registrations" }
   get 'home/index'

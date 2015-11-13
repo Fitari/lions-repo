@@ -94,12 +94,33 @@ tabs>li:focus, .tabs>li>a:focus {
 	border: none;
 }
 
+.panel.success {
+  background-color: scale-color($success-color, $lightness: 90%);
+}
+
+.panel.success p{
+  color: scale-color($success-color, $lightness: -10%);
+  font-weight: bold;
+  font-size: 1.15em;
+}
+
 .panel.warning {
   background-color: scale-color($warning-color, $lightness: 90%);
 }
 
 .panel.warning p{
   color: scale-color($warning-color, $lightness: -10%);
+  font-weight: bold;
+  font-size: 1.15em;
+}
+
+
+.panel.error {
+  background-color: scale-color($alert-color, $lightness: 90%);
+}
+
+.panel.error p{
+  color: scale-color($alert-color, $lightness: -10%);
   font-weight: bold;
   font-size: 1.15em;
 }

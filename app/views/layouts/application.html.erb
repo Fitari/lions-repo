@@ -8,7 +8,8 @@
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application" %>
+  <%#= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
@@ -25,7 +26,7 @@
       <section class="top-bar-section">
       	<ul class="right" data-active=<%= @active_tab %>>
         	<li><%= link_to 'הודעות והתראות', root_path %><!--a href="#">הודעות והתראות</a--></li>
-          <li><%= link_to 'לקוחות', customer_index_path %><!--a href="customers.html">לקוחות</a--></li>
+          <li><%= link_to 'לקוחות', customers_path %><!--a href="customers.html">לקוחות</a--></li>
           <li><a href="#">ציוד ומלאי</a></li>
         </ul>
 

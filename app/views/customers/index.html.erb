@@ -13,18 +13,18 @@
         <p>&nbsp;</p>
       </div>
     </div>
-		
-		<% if flash[:warning] %>
-		<div class="row">
+    
+    <% if flash[:warning] %>
+    <div class="row">
       <div class="large-12 columns">
         <div class="panel radius warning">
-        	<p>לא נמצאו לקוחות העונים לפרטים שהוזנו</p>
+          <p>לא נמצאו לקוחות העונים לפרטים שהוזנו</p>
         </div>
       </div>
     </div>
     <% end %>
 
-    <%= form_for @customer, url: {action: "create"} do |f| %>
+    <%= form_for @customer do |f| %>
       <div class="row">
         <div class="medium-4 columns">
           <label for="">שם פרטי
@@ -99,8 +99,10 @@
       <div class="row">
         <div class="large-12 columns">
           <div class="left">
-            <%= submit_tag "איתור לקוח קיים", name: 'search', :id=>"btn_search", :class=>"button small radius" %>
-            <%= submit_tag "הוספת לקוח חדש", :id=>"btn_new", :class=>"button small radius" %>
+            <%= submit_tag "איתור לקוח קיים", :id=>"btn_search", :class=>"button small radius" %>
+            <%#= link_to "איתור לקוח קיים", customer_search_path(:customer => @customer.attributes), method: :get, :class=>"button small radius" %>
+            <%= submit_tag "הוספת לקוח חדש", :id=>"btn_create", :class=>"button small radius" %>
+            <a href="#" id="findBtn" class="button small radius">aaaa</a>
           </div>
         </div>
       </div>
@@ -110,69 +112,4 @@
   </div>
 </div>
 
-<div id="cSelectModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">בחירת לקוח</h2>
-  <p class="lead">נמצאו מספר לקוחות עם הפרטים שהזנת</p>
-  <div>
-    <table id="cResultList">
-      <tr>
-        <th>תז</th>
-        <th>שם פרטי</th>
-        <th>שם משפחה</th>
-        <th>מגדר</th>
-        <th>ישוב</th>
-        <th>כתובת</th>
-        <th>טלפון</th>
-        <th>דוא"ל</th>
-      </tr>
-      <tr>
-        <td>111111111</td>
-        <td>אלון</td>
-        <td>פנחס</td>
-        <td>ז</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>222222222</td>
-        <td>אלון</td>
-        <td>צוקר</td>
-        <td>ז</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>333333333</td>
-        <td>אלון</td>
-        <td>שיטרית</td>
-        <td>ז</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-  <p></p>
-  <div class="left">
-    <a href="customer.html" class="button small radius">פתיחת כרטיס לקוח</a>
-  </div>
-
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
-
-<script type="text/javascript">
-  // $("#findBtn").click(function(){
-  //   $('#cSelectModal').foundation('reveal', 'open');
-  // });
-  // $("#cResultList tr:not(:first-child)").click(function(){
-  //   $("#cResultList tr").removeClass("selected");
-  //   $(this).addClass("selected");
-  // });
-
-  
-</script>
+<%=render 'results' %>

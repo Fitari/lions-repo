@@ -89,7 +89,7 @@
 					</div>
 			  </div>
 				
-				<%= form_for @customer, url: {controller: "customer", action: "create"} do |f| %>
+				<%= form_for @customer do |f| %>
 	      <div class="row">
 	        <div class="medium-3 columns">
 	          <label for="">שם פרטי
@@ -164,8 +164,8 @@
 	      <div class="row">
 	        <div class="large-12 columns">
 	          <div class="left">
-	            <%= submit_tag "איתור לקוח קיים", name: 'search', :id=>"btn_search", :class=>"button small radius" %>
-	            <%= submit_tag "הוספת לקוח חדש", :id=>"btn_new", :class=>"button small radius" %>
+	            <%= submit_tag "איתור לקוח קיים", :id=>"btn_search", :class=>"button small radius" %>
+	            <%= submit_tag "הוספת לקוח חדש", :id=>"btn_create", :class=>"button small radius" %>
 	          </div>
 	        </div>
 	      </div>
