@@ -13,17 +13,13 @@ class CustomersController < ApplicationController
 
   def search
   	flash[:warning] = nil
-		res = Customer.search(params.require(:customer))
+		res = Customer.search(params[:customer])
 		c = res.count
-		if c == 0
-			@customer = Customer.new(customer_params)
-			flash[:warning] = "true"
-      render :index
-		elsif c == 1
+		if c == 1
 			@customer = res.first
-			redirect_to @customer
+			render :json => [{ redirect_url: customer_url(@customer) }]
 		else
-			redirect_to root_path
+      render :json => res
 		end
   end
 

@@ -14,15 +14,13 @@
       </div>
     </div>
     
-    <% if flash[:warning] %>
-    <div class="row">
+    <div class="row hide" id="no_result">
       <div class="large-12 columns">
         <div class="panel radius warning">
           <p>לא נמצאו לקוחות העונים לפרטים שהוזנו</p>
         </div>
       </div>
     </div>
-    <% end %>
 
     <%= form_for @customer do |f| %>
       <div class="row">
