@@ -10,6 +10,6 @@ jQuery ->
 		
 
 		$('#btn_create').click ->
-			$(this.form).attr('action', '/customers/create')
+			$(this.form).attr('action', '/customers')
 			$(this.form).attr('method', 'POST')
 
