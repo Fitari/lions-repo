@@ -5,8 +5,18 @@
 jQuery ->
 	$(document).ready ->
 		$('#btn_search').click ->
-			$(this.form).attr('action', '/customers/search')
-			$(this.form).attr('method', 'GET')
+			url = '/customers'
+			params = 
+				'data' : $(@form).serialize()
+				'from_page' : 'home#index'
+			$.ajax
+				url: url
+				data: params
+				dataType: 'json'
+				success: (data) ->
+					#console.log(data)
+					handleSearch(data)
+			false
 		
 
 		$('#btn_create').click ->
