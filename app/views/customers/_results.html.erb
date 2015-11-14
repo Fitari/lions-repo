@@ -1,24 +1,16 @@
 <div id="cSelectModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">בחירת לקוח</h2>
-  <p class="lead">נמצאו מספר לקוחות עם הפרטים שהזנת</p>
-  <div id="cResultList">
+  <p class="lead">נמצאו <span id="res_count">0</span> לקוחות עם הפרטים שהזנת</p>
+  <div id="tableContainer">
   </div>
   <p></p>
   <div class="left">
-    <a href="customer.html" class="button small radius">פתיחת כרטיס לקוח</a>
+    <%= link_to 'פתיחת כרטיס לקוח', '', {:id=>'btn_select', :class=>"button small radius secondary disabled"} %>
   </div>
 
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
 <script type="text/javascript">
-   $("#findBtn").click(function(){
-     $('#cSelectModal').foundation('reveal', 'open');
-   });
-  $("#cResultList tr:not(:first-child)").click(function(){
-    $("#cResultList tr").removeClass("selected");
-    $(this).addClass("selected");
-  });
 
-  
 </script>

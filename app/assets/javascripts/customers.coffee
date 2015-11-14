@@ -5,11 +5,52 @@
 jQuery ->
 	$(document).ready ->
 		$('#btn_search').click ->
-			$(this.form).attr('action', '/customers/search')
-			$(this.form).attr('method', 'GET')
-		
+			url = '/customers/search'
+			params = $(@form).serialize()
+			if $('#no_result')
+				$('#no_result').hide 200
+			$.ajax
+				url: url
+				data: params
+				dataType: 'json'
+				success: (data) ->
+					console.log(data)
+					if data.length == 0
+						$('#no_result').show 200
+					else if data.length == 1
+						window.location = data[0].redirect_url
+					else
+						fields = 
+				            'tz': 'ת.ז.'
+				            'fname': 'שם פרטי'
+				            'lname': 'שם משפחה'
+				            'city': 'ישוב'
+				            'address': 'כתובת'
+				            'phone': 'טלפון'
+				            'email': 'דוא"ל'
+
+		            	
+						$(data.res).each (k,r) ->
+							r.city = data.nested.filter((data) ->
+								return data.id == r.city_id
+							)[0].name
+
+						createResTable(fields, data.res, $('#tableContainer'))
+						$('#cSelectModal').foundation 'reveal', 'open'
+						$('#res_count').text(data.res.length);
+						$('#tableContainer tr:not(:first-child)').click ->
+							$('#cSelectModal #btn_select').removeClass("secondary disabled")
+
+						$('#cSelectModal #btn_select').click ->
+							$(this).attr 'href', '/customers/'+$('#tableContainer tr.selected')[0].id
+							true
+					return
+			false
+
 
 		$('#btn_create').click ->
-			$(this.form).attr('action', '/customers')
-			$(this.form).attr('method', 'POST')
+			$(@form).attr 'action', '/customers'
+			$(@form).attr 'method', 'POST'
+			return
+		return
 

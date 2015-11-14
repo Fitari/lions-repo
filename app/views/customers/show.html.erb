@@ -4,7 +4,7 @@
         
       <div class="row">
         <div class="large-4 columns">
-          <h2>כרטיס לקוח</h2><h2><small><%= @customer.fname + " " + @customer.lname %></small></h2>
+          <h2>כרטיס לקוח</h2><h2><small><%= @customer.fname.to_s + " " + @customer.lname.to_s %></small></h2>
         </div>
         <div class="large-8 columns">
           <div class="left" id="sub_toolbar">
@@ -55,8 +55,8 @@
         
         <div class="medium-2 columns">
           <label for="">מגדר
-          	<%= f.text_field(:gender) %>
-            <%#= select(:customer, :gender, [['זכר', 'זכר'], ['נקבה', 'נקבה']], {include_blank: true}) %>
+          	<%= f.text_field(:gender, :class => "vmode") %>
+            <%= select(:customer, :gender, [['זכר', 'זכר'], ['נקבה', 'נקבה']], {include_blank: true}, :class => "emode hide") %>
           </label>
         </div>
 
@@ -68,9 +68,9 @@
         <div class="medium-4 columns">
           <label for="">ישוב
             <%= fields_for @customer.city do |city_form| %>
-					    <%= city_form.text_field :name %>
+					    <%= city_form.text_field :name, :class => "vmode" %>
 					  <% end %>
-            <%#= collection_select(:customer, :city_id, City.all.order('name'), :id, :name, {include_blank: true}) %>
+            <%= collection_select(:customer, :city_id, City.all.order('name'), :id, :name, {include_blank: true}, :class => "emode hide") %>
           </label>
         </div>
         <div class="medium-4 columns">
@@ -308,14 +308,16 @@
       $("#sub_toolbar>a").addClass("secondary disabled");
       $("#editbuttons").show();
       $(".row.notice").hide(200);
-      
+      $(".emode").show();
+      $(".vmode").hide();
     });
 
     $("#editbuttons a").click(function(){
       $("input").prop( "disabled", true );
       $("#sub_toolbar>a").removeClass("secondary disabled");
       $("#editbuttons").hide();
-      
+      $(".emode").hide();
+      $(".vmode").show();
     });
 
     $(".row.notice").ready(function(){

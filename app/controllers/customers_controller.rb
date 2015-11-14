@@ -15,11 +15,16 @@ class CustomersController < ApplicationController
   	flash[:warning] = nil
 		res = Customer.search(params[:customer])
 		c = res.count
-		if c == 1
+		if c == 0
+			render :json => res
+		elsif c == 1
 			@customer = res.first
 			render :json => [{ redirect_url: customer_url(@customer) }]
 		else
-      render :json => res
+			a=[]
+			res.map { |p| a.push p[:city_id]}
+			cities = City.where("id in (?)",a)
+      render :json => {res: res, nested: cities}
 		end
   end
 
@@ -58,7 +63,7 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit!
+    params.require(:customer).permit(:fname, :lname, :tz, :gender, :city_id, :address, :zipcode, :phone, :email)
   end
 
 end

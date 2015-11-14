@@ -58,6 +58,14 @@
 
 /////////////////////// My Custom Styling //////////////////////////////
 
+a.disabled {
+  pointer-events: none !important;
+}
+
+table.selectable tr:not(:first-child):hover {
+  background-color: scale-color($primary-color, $alpha: -92%);
+}
+
 tr.selected {
 	background-color: scale-color($primary-color, $alpha: -70%) !important;
 }
