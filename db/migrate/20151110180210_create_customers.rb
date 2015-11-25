@@ -10,7 +10,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :zipcode
       t.string :email
       t.string :phone
-      t.references :customer_type
+      t.references :customers_type, default: 1
       t.text :notes
 
       t.timestamps null: false

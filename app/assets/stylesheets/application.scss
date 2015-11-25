@@ -73,6 +73,10 @@ tr.selected {
 .tabs {
 	margin-right: 0;
 }
+.tabs>li>a {
+  padding-top: 0.7em !important;
+  padding-bottom: 0.7em !important;
+}
 tabs>li:focus, .tabs>li>a:focus {
 	outline: 0;
 }

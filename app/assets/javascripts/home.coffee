@@ -4,12 +4,14 @@
 
 jQuery ->
 	$(document).ready ->
-		$('#btn_search').click ->
-			$(this.form).attr('action', '/customers/search')
-			$(this.form).attr('method', 'GET')
+		$('#btn_search_h').click ->
+			url = '/customers'
+			params = $(@form).serialize() + "&from_page=home_index"
+			window.location = url + "?" + params
+			false
 		
 
-		$('#btn_create').click ->
+		$('#btn_create_h').click ->
 			$(this.form).attr('action', '/customers')
 			$(this.form).attr('method', 'POST')
 

@@ -9,3 +9,5 @@
 roles = Role.create([{ title: 'מנהל'}, { title: 'תורן'}])
 
 cities = City.create([{ name: 'הוד השרון' },{ name: 'כפר סבא' },{ name: 'רעננה' },{ name: 'הרצליה' },{ name: 'רמת השרון' },{ name: 'תל אביב' },{ name: 'רמת גן' },{ name: 'גבעתיים' },{ name: 'פתח תקווה' },{ name: 'חולון' },{ name: 'בת ים' },{ name: 'ראשון לציון' }])
+
+customers_types = CustomersType.create([{name: 'רגיל'}, {name: 'זהב'}])

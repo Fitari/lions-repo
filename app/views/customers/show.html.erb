@@ -27,21 +27,17 @@
 	    </div>
 	    <% end %>
 
-      <div class="row">
-        <div class="large-12 columns">
-          <p>&nbsp;</p>
-        </div>
-      </div>
+      
 
       <%= form_for @customer, url: {action: "update"} do |f| %>
       <div class="row">
-        <div class="medium-4 columns">
+        <div class="medium-3 columns">
           <label for="">שם פרטי
             <%= f.text_field(:fname) %>
           </label>
         </div>
         
-        <div class="medium-4 columns">
+        <div class="medium-3 columns">
           <label for="">שם משפחה
             <%= f.text_field(:lname) %>
           </label>
@@ -60,12 +56,12 @@
           </label>
         </div>
 
-        <div class="medium-0 columns">
+        <div class="medium-2 columns">
         </div>
       </div>
       
       <div class="row">
-        <div class="medium-4 columns">
+        <div class="medium-3 columns">
           <label for="">ישוב
             <%= fields_for @customer.city do |city_form| %>
 					    <%= city_form.text_field :name, :class => "vmode" %>
@@ -73,7 +69,7 @@
             <%= collection_select(:customer, :city_id, City.all.order('name'), :id, :name, {include_blank: true}, :class => "emode hide") %>
           </label>
         </div>
-        <div class="medium-4 columns">
+        <div class="medium-5 columns">
           <label for="">כתובת
             <%= f.text_field(:address) %>
           </label>
@@ -89,19 +85,36 @@
       </div>
 
       <div class="row">
-        <div class="medium-4 columns">
+        <div class="medium-3 columns">
           <label for="">טלפון
             <%= f.telephone_field(:phone) %>
           </label>
         </div>
         
-        <div class="medium-6 columns">
+        <div class="medium-5 columns">
           <label for="">דוא"ל
             <%= f.email_field(:email) %>
           </label>
         </div>
 
         <div class="medium-2 columns">
+          <label for="">סוג לקוח
+            <%= fields_for @customer.customers_type do |customers_type_form| %>
+              <%= customers_type_form.text_field :name, :class => "vmode" %>
+            <% end %>
+            <%= collection_select(:customer, :customers_type_id, CustomersType.all.order('name'), :id, :name, {include_blank: true}, :class => "emode hide") %>
+          </label>
+        </div>
+
+        <div class="medium-2 columns">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-10 columns">
+          <label for="">הערות
+            <%= f.email_field(:notes) %>
+          </label>
         </div>
       </div>
 

@@ -9,6 +9,10 @@ class CustomersController < ApplicationController
   def index
   	flash[:warning] = nil
   	@customer = Customer.new
+
+  	if params[:from_page]
+  		@customer = Customer.new(customer_params)
+  	end
   end
 
   def search
@@ -63,7 +67,7 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:fname, :lname, :tz, :gender, :city_id, :address, :zipcode, :phone, :email)
+    params.require(:customer).permit(:fname, :lname, :tz, :gender, :city_id, :address, :zipcode, :phone, :email, :customers_type_id, :notes)
   end
 
 end

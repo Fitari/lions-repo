@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151110180210) do
     t.string   "zipcode"
     t.string   "email"
     t.string   "phone"
-    t.integer  "customer_type_id"
+    t.integer  "customers_type_id"  default: 1
     t.text     "notes"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
